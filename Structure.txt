@@ -1,0 +1,16 @@
+USER FEATURE
+	- Create Account
+	- Login Account
+	- Dashboard
+		- Edit Profile
+		- View Products/Service
+		- View Order Status
+		- Order History
+		- Logout
+
+ADMIN FEATURE	
+	- VIEW ORDERS
+		- Status
+	- VIEW USERS
+	- ADD PRODUCTS/SERVICES
+	
