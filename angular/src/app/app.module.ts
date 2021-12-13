@@ -11,13 +11,32 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { RouterModule, Routes } from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
+import { AdminComponent } from './admin/admin.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
+
+
+
+
+const appRoutes: Routes = [
+  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent },
+ 
+];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SigninComponent
+    SigninComponent,
+    AdminComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -27,7 +46,13 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule.forRoot(appRoutes),
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

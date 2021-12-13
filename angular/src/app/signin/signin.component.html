@@ -24,8 +24,8 @@
             placeholder="Ex. pat@dpprintdesign.com"
           />
           <mat-error *ngIf="checkError('email', 'required')"
-          >Valid email is required</mat-error
-        >
+            >Valid email is required</mat-error
+          >
           <!-- <mat-error *ngIf="emailFormControl.hasError('required')">
             Email is <strong>required</strong>
           </mat-error> -->
@@ -63,13 +63,7 @@
               </button>
             </td>
             <td>
-              <button
-                mat-button
-                mat-raised-button
-                class="half-width btn-cancel"
-              >
-                SIGN UP
-              </button>
+              <a routerLink="/signup">signup</a>
             </td>
           </tr>
         </table>
