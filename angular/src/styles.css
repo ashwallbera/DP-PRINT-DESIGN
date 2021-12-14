@@ -39,3 +39,8 @@ body {
 .half-width {
   width: 50%;
 }
+
+.content-page{
+  background-image: linear-gradient(to bottom right, #2d3436, #f1f2f6);
+  height: 100%;
+}

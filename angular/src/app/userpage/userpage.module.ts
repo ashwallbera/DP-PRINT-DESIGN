@@ -17,6 +17,8 @@ import { ProductserviceComponent } from './productservice/productservice.compone
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
+import { MyordersComponent } from './myorders/myorders.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     MainComponent,
     SidenavComponent,
     ProductserviceComponent,
+    MyordersComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +41,8 @@ import { MatButtonModule } from '@angular/material/button';
     RouterModule,
     MatCardModule,
     MatGridListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule
   ],
 })
 export class UserpageModule {}
