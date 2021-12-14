@@ -14,6 +14,9 @@ import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ProductserviceComponent } from './productservice/productservice.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { ProductserviceComponent } from './productservice/productservice.compone
     MatDividerModule,
     MatListModule,
     RouterModule,
+    MatCardModule,
+    MatGridListModule,
+    MatButtonModule
   ],
 })
 export class UserpageModule {}
