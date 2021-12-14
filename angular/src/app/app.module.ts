@@ -21,6 +21,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { UserpageModule } from './userpage/userpage.module';
 import { AppRoutingModule } from './app-routing.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     MatListModule,
     MatSidenavModule,
     AppRoutingModule,
-    UserpageModule
+    UserpageModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,6 +19,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MyordersComponent } from './myorders/myorders.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatGridListModule,
     MatButtonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTableModule,
+    MatCheckboxModule
   ],
 })
 export class UserpageModule {}

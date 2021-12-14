@@ -5,11 +5,11 @@
 :root {
   --primary: #57606f;
   --secondary: #ffffff;
-  --size:12px;
+  --size: 12px;
 }
 
-.align-left{
-    float: left;
+.align-left {
+  float: left;
 }
 .btn-ok {
   background-color: var(--primary);
@@ -19,11 +19,11 @@
 }
 
 .btn-cancel {
-    background-color: var(--secondary);
-    color: var(--primary);
-    font-size: var(--size);
-    padding: 7px;
-  }
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-size: var(--size);
+  padding: 7px;
+}
 html,
 body {
   height: 100%;
@@ -40,7 +40,18 @@ body {
   width: 50%;
 }
 
-.content-page{
-  background-image: linear-gradient(to bottom right, #2d3436, #f1f2f6);
+.content-page {
+  background-image: linear-gradient(to bottom right, var(--primary), var(--secondary));
   height: 100%;
+  padding: 20px;
+}
+table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--secondary);
+  background-color: var(--primary);
 }
