@@ -1,1 +1,18 @@
-@import "../home/home.component.scss";
+//@import "../home/home.component.scss";
+.example-card {
+  width: 300px;
+  height: 550px;
+  display: inline-block;
+  overflow: auto;
+  margin: 20px;
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+
+// ::ng-deep mat-card-image {
+//   width: 250px !important;
+//   height: 250px !important;
+// }
