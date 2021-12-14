@@ -21,6 +21,8 @@ import { MyordersComponent } from './myorders/myorders.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ViewOrderDialogComponent } from './myorders/view-order-dialog/view-order-dialog.component';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     SidenavComponent,
     ProductserviceComponent,
     MyordersComponent,
+    ViewOrderDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +50,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatButtonModule,
     MatPaginatorModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
   ],
 })
 export class UserpageModule {}

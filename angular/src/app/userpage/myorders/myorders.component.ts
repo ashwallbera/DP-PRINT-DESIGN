@@ -1,6 +1,9 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatDialog} from '@angular/material/dialog';
+import { ViewOrderDialogComponent } from './view-order-dialog/view-order-dialog.component';
+
 @Component({
   selector: 'app-myorders',
   templateUrl: './myorders.component.html',
@@ -9,10 +12,18 @@ import {MatTableDataSource} from '@angular/material/table';
 
 
 export class MyordersComponent implements AfterViewInit {
-  displayedColumns: string[] = ['order_no', 'order_name', 'customer_address', 'order_status'];
+  displayedColumns: string[] = ['order_no', 'order_name', 'customer_address', 'order_status','date','order_status1'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
+  constructor(public dialog: MatDialog){
+
+  }
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  openDialog() {
+    this.dialog.open(ViewOrderDialogComponent);
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
