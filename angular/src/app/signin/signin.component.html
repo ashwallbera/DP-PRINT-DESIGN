@@ -9,7 +9,7 @@
         #loginValue="ngForm"
         [formGroup]="addProductForm"
       >
-        <mat-form-field class="full-width" appearance="fill">
+        <mat-form-field class="full-width" appearance="outline">
           <mat-label>Email</mat-label>
           <span matPrefix
             ><mat-icon aria-hidden="false" aria-label="Example home icon"
@@ -34,7 +34,7 @@
         <br />
         <br />
 
-        <mat-form-field class="full-width" appearance="fill">
+        <mat-form-field class="full-width" appearance="outline">
           <mat-label>PASSWORD</mat-label>
           <span matPrefix
             ><mat-icon aria-hidden="false" aria-label="Example home icon"
@@ -47,7 +47,11 @@
             matInput
             formControlName="password"
             placeholder="PASSWORD"
+            [type]="hide ? 'password' : 'text'"
           />
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
         </mat-form-field>
 
         <table class="full-width">

@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'angular';
   constructor( private _router: Router) {}
   ngOnInit(): void {
-    this._router.navigate(['/', 'signin'])
+    //this._router.navigate(['/', 'signin'])
+    //this._router.navigate(['/', 'userpage'])
   }
 }

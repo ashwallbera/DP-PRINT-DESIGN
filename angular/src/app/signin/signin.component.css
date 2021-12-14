@@ -20,7 +20,7 @@
 .login {
   position: relative; /*Can also be `fixed`*/
   /*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*/
-  width: 50%;
+  width: 40%;
   top: 35%;
   left: 25%;
 }

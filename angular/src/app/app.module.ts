@@ -19,14 +19,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { UserpageModule } from './userpage/userpage.module';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
 
+
+// const appRoutes: Routes = [{ path: "userpage", loadChildren: () => 
+// import("./userpage/userpage.module").then((m) => m.UserpageModule) }];
 
 const appRoutes: Routes = [
-  { path: 'signin', component: SigninComponent },
-  { path: 'signup', component: SignupComponent },
+//   { path: 'signin', component: SigninComponent },
+//   { path: 'signup', component: SignupComponent },
+//   { path: "userpage", loadChildren: () => 
+//  import("./userpage/userpage.module").then((m) => m.UserpageModule) }
  
 ];
 
@@ -35,8 +42,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     SigninComponent,
-    AdminComponent,
-
+  
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,10 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatMenuModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    AppRoutingModule,
+    UserpageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

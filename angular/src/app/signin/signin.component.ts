@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
+  hide = true;
   addProductForm: FormGroup;
   constructor( private _router: Router) {
     this.addProductForm = new FormGroup({
@@ -21,7 +22,7 @@ export class SigninComponent implements OnInit {
 
   getValues(val: any) {
     console.log(val);
-    this._router.navigate(['/user'])
+    this._router.navigate(['/userpage'])
     .then(nav => {
       console.log("SUCCESS "+nav); // true if navigation is successful
     }, err => {
