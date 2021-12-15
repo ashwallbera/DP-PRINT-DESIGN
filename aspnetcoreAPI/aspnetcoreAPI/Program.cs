@@ -3,7 +3,22 @@ using aspnetcoreAPI.Models;
 using TodoApi.Models;
 using aspnetcoreAPI.Context;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("http://localhost:4200/")
+                          .AllowAnyHeader()
+                          .AllowAnyOrigin()
+                          .AllowAnyMethod();
+                      });
+});
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -32,10 +47,9 @@ if (builder.Environment.IsDevelopment())
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DP PRINT & DESIGN v1"));
 }
 
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 

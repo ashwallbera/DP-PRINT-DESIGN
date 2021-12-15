@@ -85,6 +85,40 @@ namespace aspnetcoreAPI.Controllers
 
         }
 
+        [HttpGet("{username}/{password}")]
+        public async Task<ActionResult<UserModel>> VerifyUser(string username,string password)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string cmd = string.Format(@"
+                               Select 
+                               *
+                               FROM accounts where username='" + username + "' and password='"+password+"' ");
+
+                    var results = await connection.QueryAsync<UserModel>(cmd);
+                    connection.Close();
+                    var product = results.ToList();
+                    if (product.Count() == 0)
+                    {
+                        return NotFound(false);
+                    }
+                    return Ok(product);
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
