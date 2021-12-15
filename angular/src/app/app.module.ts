@@ -22,6 +22,7 @@ import { MatListModule } from '@angular/material/list';
 import { UserpageModule } from './userpage/userpage.module';
 import { AppRoutingModule } from './app-routing.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -63,7 +64,8 @@ const appRoutes: Routes = [
     MatSidenavModule,
     AppRoutingModule,
     UserpageModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
