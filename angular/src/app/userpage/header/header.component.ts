@@ -17,4 +17,9 @@ export class HeaderComponent implements OnInit {
     this.toggleSidebarForMe.emit();
   }
 
+  logout(){
+    localStorage.clear()
+    this.router.navigate(['/'])
+  }
+
 }
