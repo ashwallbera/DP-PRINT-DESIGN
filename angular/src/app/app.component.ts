@@ -18,6 +18,12 @@ export class AppComponent {
     // console.log(localStorage.hasOwnProperty('username'));
     //this._router.navigate(['/', 'signin'])
     //this._router.navigate(['/', 'userpage'])
+    if(localStorage.hasOwnProperty('user')){
+      this._router.navigate(['/', 'userpage'])
+    }
+    else{
+      this._router.navigate(['/', 'signin'])
+    }
 
     
   }
