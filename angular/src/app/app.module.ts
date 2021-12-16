@@ -23,6 +23,12 @@ import { UserpageModule } from './userpage/userpage.module';
 import { AppRoutingModule } from './app-routing.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatStepperModule} from '@angular/material/stepper';
+import { MatCardModule } from '@angular/material/card';
+
+
 
 
 
@@ -44,6 +50,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     SigninComponent,
+    LoadingScreenComponent,
+    SignupComponent
   
   ],
   imports: [
@@ -65,7 +73,11 @@ const appRoutes: Routes = [
     AppRoutingModule,
     UserpageModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatStepperModule,
+    MatCardModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

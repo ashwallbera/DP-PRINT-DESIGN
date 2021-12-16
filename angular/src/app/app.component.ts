@@ -8,12 +8,11 @@ import { LoginService } from './services/_login/login.service';
 })
 export class AppComponent {
   title = 'angular';
-  user_sample = {username: "ashwallbera",password:"Password1",role:"user"}
   constructor( private _router: Router) {}
   ngOnInit(): void {
     // localStorage.setItem('username', JSON.stringify(this.user_sample)); // use for login
-     console.log(JSON.parse(""+localStorage.getItem('user')));
-     console.log(localStorage.hasOwnProperty('user'));
+    //  console.log(JSON.parse(""+localStorage.getItem('user')));
+    //  console.log(localStorage.hasOwnProperty('user'));
     // localStorage.clear(); // Use for logout
     // console.log(localStorage.hasOwnProperty('username'));
     //this._router.navigate(['/', 'signin'])

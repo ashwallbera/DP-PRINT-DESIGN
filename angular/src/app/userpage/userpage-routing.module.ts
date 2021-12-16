@@ -16,7 +16,7 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
-        path: "home", component: HomeComponent
+        path: "", component: HomeComponent
       },
       {
         path: "productservice", component: ProductserviceComponent
