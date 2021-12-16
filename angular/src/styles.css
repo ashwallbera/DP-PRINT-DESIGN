@@ -8,6 +8,10 @@
   --size: 12px;
 }
 
+.background-color{
+  background-color: var(--primary) !important;
+}
+
 .align-left {
   float: left;
 }
@@ -54,4 +58,19 @@ table {
   font-weight: 500;
   color: var(--secondary);
   background-color: var(--primary);
+}
+
+.mat-form-field {
+  padding: 5px;
+}
+
+.mat-card-actions{
+  align-items: center !important;
+  position: absolute;
+  /* margin-left: -8px; */
+  /* margin-right: -8px; */
+  /* padding: 8px 0; */
+  /* margin-bottom: 0px; */
+  /* align-items: baseline; */
+  bottom: 15px !important;
 }
