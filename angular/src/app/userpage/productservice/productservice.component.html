@@ -1,64 +1,21 @@
-<div class="content-page">
-  <mat-card class="example-card">
+<div fxFlex class="content-page">
+  <!-- Dynamic mat card -->
+
+  <mat-card class="example-card" *ngFor="let product of products">
+    
     <mat-card-header>
       <!-- <div mat-card-avatar class="example-header-image"></div> -->
-      <mat-card-title>Wedding and Stationary</mat-card-title>
+      <mat-card-title >{{product.name}}</mat-card-title>
       <!-- <mat-card-subtitle>Card for the businesses</mat-card-subtitle> -->
     </mat-card-header>
     <img
       mat-card-image
-      src="https://i.pinimg.com/564x/bb/f8/c2/bbf8c2e3efe5d8778d5d07315782a466.jpg"
+      src="{{product.imgUri}}"
       alt="Photo of a Shiba Inu"
     />
     <mat-card-content>
       <p>
-        We offer a selection of personalised birthday, wedding, christening
-        invitations, suitable for both men and women, and for a wide range of
-        party styles or themes.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button class="btn-ok">SHOP NOW</button>
-    </mat-card-actions>
-  </mat-card>
-
-  <mat-card class="example-card">
-    <mat-card-header>
-      <!-- <div mat-card-avatar class="example-header-image"></div> -->
-      <mat-card-title>Marketing Material</mat-card-title>
-      <!-- <mat-card-subtitle>For your marketing strategy</mat-card-subtitle> -->
-    </mat-card-header>
-    <img
-      mat-card-image
-      src="https://i.pinimg.com/564x/73/29/b0/7329b0ad863ca65af6b69f892da57e8a.jpg"
-      alt="Photo of a Shiba Inu"
-    />
-    <mat-card-content>
-      <p>
-        Gear up for events and promotions with postcards, flyers, brochures,
-        signage and beverages.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button class="btn-ok">SHOP NOW</button>
-    </mat-card-actions>
-  </mat-card>
-
-  <mat-card class="example-card">
-    <mat-card-header>
-      <!-- <div mat-card-avatar class="example-header-image"></div> -->
-      <mat-card-title>Clothing</mat-card-title>
-      <!-- <mat-card-subtitle>For your marketing strategy</mat-card-subtitle> -->
-    </mat-card-header>
-    <img
-      mat-card-image
-      src="https://i.pinimg.com/564x/fa/da/eb/fadaebbafc8dd29b277f0d94cfc925d2.jpg
-            "
-      alt="Photo of a Shiba Inu"
-    />
-    <mat-card-content>
-      <p>
-        Print to look Professional. Customise front chest, back chest and back
+       {{product.description}}
       </p>
     </mat-card-content>
     <mat-card-actions>

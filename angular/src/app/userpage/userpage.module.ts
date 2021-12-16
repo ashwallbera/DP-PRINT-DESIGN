@@ -23,6 +23,7 @@ import { MatTableModule } from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ViewOrderDialogComponent } from './myorders/view-order-dialog/view-order-dialog.component';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { ViewOrderDialogComponent } from './myorders/view-order-dialog/view-orde
     ProductserviceComponent,
     MyordersComponent,
     ViewOrderDialogComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
