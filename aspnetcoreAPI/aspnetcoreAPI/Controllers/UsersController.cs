@@ -22,7 +22,7 @@ namespace aspnetcoreAPI.Controllers
 
         // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserModel>>> GetTodoItems()
+        public async Task<ActionResult<IEnumerable<UserModel>>> GetUsers()
         {
 
             try
@@ -162,7 +162,7 @@ namespace aspnetcoreAPI.Controllers
                 {
                     connection.Open();
                     
-                    string cmd = "INSERT INTO accounts (id,username,password) values('"+Guid.NewGuid()+"','"+user.username+"','"+user.password+"')";
+                    string cmd = "INSERT INTO accounts (id,username,password,email,firstname,lastname) values('"+Guid.NewGuid()+"','"+user.username+"','"+user.password+"','"+user.email+"','"+user.firstname+"','"+user.lastname+"')";
                     var results = await connection.QueryAsync<UserModel>(cmd);
                     connection.Close();
                     return Ok(true);
