@@ -34,9 +34,10 @@ export class SigninComponent implements OnInit {
     this.login.verifyuser(val.username, val.password).subscribe({
       next: (data) => {
         if (data.length != 0) {
-          console.log(data);
+          //console.log(data);
           console.log('verified');
-          localStorage.setItem('user', JSON.stringify(val));
+          localStorage.setItem('user', JSON.stringify(data));
+          console.log(JSON.parse(""+localStorage.getItem('user')));
           this._router.navigate(['/userpage']).then(
             (nav) => {
               console.log('SUCCESS ' + nav); // true if navigation is successful
