@@ -1,0 +1,126 @@
+<!-- <h1 mat-dialog-title>ORDER DETAIL</h1>
+<div mat-dialog-content>
+  <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{ !isLinear ? "Enable linear mode" : "Disable linear mode" }}
+  </button>
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>SELECT ITEM SPECIFICATIO</ng-template>
+        <div class="d-flex justify-content-center">
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              placeholder="Last name, First name"
+              formControlName="firstCtrl"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              placeholder="Last name, First name"
+             
+              required
+            />
+          </mat-form-field>
+        </div>
+
+      
+
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <input
+            matInput
+            formControlName="secondCtrl"
+            placeholder="Ex. 1 Main St, New York, NY"
+            required
+          />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>
+<div mat-dialog-actions>
+ 
+</div>
+<button mat-button mat-dialog-close>Close</button> -->
+<h2 mat-dialog-title>Products</h2>
+<mat-dialog-content class="mat-typography">
+  
+
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>SELECT ITEM SPECIFICATIO</ng-template>
+        <div class="d-flex justify-content-center">
+          <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{ food.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div align="end">
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+      <form [formGroup]="secondFormGroup">
+        <div class="d-flex justify-content-center">
+          <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input
+              matInput
+              formControlName="secondCtrl"
+              placeholder="Ex. 1 Main St, New York, NY"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p class="d-flex justify-content-center">You are now done.</p>
+      <div class="d-flex justify-content-between">
+        <button mat-button matStepperPrevious>Back</button>
+
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

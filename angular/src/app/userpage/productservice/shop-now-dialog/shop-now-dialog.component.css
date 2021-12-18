@@ -1,0 +1,4 @@
+::ng-deep .mat-dialog {
+    /* styles here */
+    border-radius: 20px;
+  }
