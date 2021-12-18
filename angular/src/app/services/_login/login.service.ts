@@ -11,10 +11,27 @@ export class LoginService {
   constructor(public httpClient: HttpClient) {}
 
   public verifyuser(id: string, password: string) {
-    const headers = {  'accept': 'text/plain' }
+    const headers = { accept: 'text/plain' };
     return this.httpClient.get<LoginModel[]>(
       `${this.apiroot}/${id}/${password}`
     );
+  }
+
+  public createuser(userModel: LoginModel) {
+    this.httpClient
+      .post<LoginModel>(`${this.apiroot}`, {
+        id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+        email: userModel.username,
+        username: userModel.username,
+        password: userModel.password,
+        firstname: userModel.firstname,
+        lastname: userModel.lastname,
+        role: "user",
+        
+      })
+      .subscribe((data) => {
+        console.log("create success")
+      });
   }
 }
 
