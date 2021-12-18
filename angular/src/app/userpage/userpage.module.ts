@@ -23,6 +23,9 @@ import { MatTableModule } from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ViewOrderDialogComponent } from './myorders/view-order-dialog/view-order-dialog.component';
+import { ShopNowDialogComponent } from './productservice/shop-now-dialog/shop-now-dialog.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -35,6 +38,7 @@ import { ViewOrderDialogComponent } from './myorders/view-order-dialog/view-orde
     ProductserviceComponent,
     MyordersComponent,
     ViewOrderDialogComponent,
+   //ShopNowDialogComponent,
     
   ],
   imports: [
@@ -53,7 +57,9 @@ import { ViewOrderDialogComponent } from './myorders/view-order-dialog/view-orde
     MatPaginatorModule,
     MatTableModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatStepperModule,
+    MatSelectModule
   ],
 })
 export class UserpageModule {}
