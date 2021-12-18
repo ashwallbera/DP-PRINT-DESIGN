@@ -2,46 +2,56 @@
   style="position: fixed; background-color: black; height: 100%; width: 100%"
 >
   <div class="left"><img src="../../assets/image/background.gif" alt="" /></div>
-  <div class="right ">
-    <div class="login ">
+  <div class="right">
+    <div class="login">
       <mat-card>
-        <div class="d-flex justify-content-around">
-          <mat-form-field class="half-width" appearance="outline">
-            <mat-label>FIRST NAME</mat-label>
-            <!-- <span matPrefix
-                    >
-                    <mat-icon aria-hidden="false" aria-label="Example home icon"
-                      >email
-                    </mat-icon>
-                    &nbsp;
-                  </span> -->
-            <input type="name" matInput placeholder="FIRST NAME" />
-
-            <!-- <mat-error *ngIf="emailFormControl.hasError('required')">
-                          Email is <strong>required</strong>
-                        </mat-error> -->
-          </mat-form-field>
-
-          <mat-form-field class="half-width" appearance="outline">
-            <mat-label>LAST NAME</mat-label>
-            <!-- <span matPrefix
-                    ><mat-icon aria-hidden="false" aria-label="Example home icon"
-                      >email
-                    </mat-icon>
-                    &nbsp;
-                  </span> -->
-            <input type="name" matInput placeholder="LAST NAME" />
-
-            <!-- <mat-error *ngIf="emailFormControl.hasError('required')">
-                          Email is <strong>required</strong>
-                        </mat-error> -->
-          </mat-form-field>
-        </div>
         <form
           class="example-form"
           #loginValue="ngForm"
           [formGroup]="signupForms"
         >
+          <div class="d-flex justify-content-around">
+            <mat-form-field class="half-width" appearance="outline">
+              <mat-label>FIRST NAME</mat-label>
+              <!-- <span matPrefix
+                      >
+                      <mat-icon aria-hidden="false" aria-label="Example home icon"
+                        >email
+                      </mat-icon>
+                      &nbsp;
+                    </span> -->
+              <input
+                type="name"
+                matInput
+                placeholder="FIRST NAME"
+                formControlName="firstname"
+              />
+
+              <!-- <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is <strong>required</strong>
+                          </mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field class="half-width" appearance="outline">
+              <mat-label>LAST NAME</mat-label>
+              <!-- <span matPrefix
+                      ><mat-icon aria-hidden="false" aria-label="Example home icon"
+                        >email
+                      </mat-icon>
+                      &nbsp;
+                    </span> -->
+              <input
+                type="name"
+                matInput
+                placeholder="LAST NAME"
+                formControlName="lastname"
+              />
+
+              <!-- <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is <strong>required</strong>
+                          </mat-error> -->
+            </mat-form-field>
+          </div>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Email</mat-label>
             <span matPrefix
@@ -72,6 +82,7 @@
             </span>
             <input
               type="password"
+              formControlName="password"
               matInput
               placeholder="PASSWORD"
               [type]="hide ? 'password' : 'text'"
@@ -119,9 +130,9 @@
             <tr>
               <td>
                 <button
+                  (click)="getValues(signupForms.value)"
                   mat-raised-button
                   class="half-width btn-ok"
-                  [disabled]="!signupForms.valid"
                 >
                   SIGN UP
                 </button>
