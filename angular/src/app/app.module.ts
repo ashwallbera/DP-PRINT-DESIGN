@@ -27,6 +27,9 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatStepperModule} from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
+import { ShopNowDialogComponent } from './userpage/productservice/shop-now-dialog/shop-now-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -51,7 +54,8 @@ const appRoutes: Routes = [
     AppComponent,
     SigninComponent,
     LoadingScreenComponent,
-    SignupComponent
+    SignupComponent,
+    ShopNowDialogComponent
   
   ],
   imports: [
@@ -76,7 +80,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatProgressSpinnerModule,
     MatStepperModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatSelectModule
     
   ],
   providers: [],
