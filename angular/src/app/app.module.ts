@@ -13,7 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
-import { AdminComponent } from './admin/admin.component';
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -30,6 +30,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ShopNowDialogComponent } from './userpage/productservice/shop-now-dialog/shop-now-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -76,6 +77,7 @@ const appRoutes: Routes = [
     MatSidenavModule,
     AppRoutingModule,
     UserpageModule,
+    AdminModule,
     MatPaginatorModule,
     HttpClientModule,
     MatProgressSpinnerModule,

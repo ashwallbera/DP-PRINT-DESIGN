@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './services/_login/login.service';
+import { LoginModel } from './services/_login/login_model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,7 +19,15 @@ export class AppComponent {
     //this._router.navigate(['/', 'signin'])
     //this._router.navigate(['/', 'userpage'])
     if(localStorage.hasOwnProperty('user')){
-      this._router.navigate(['/', 'userpage'])
+      let user: LoginModel[] = JSON.parse(""+localStorage.getItem('user'));
+      console.log(JSON.parse(""+localStorage.getItem('user')))
+      if(user[0].role == "user"){
+        this._router.navigate(['/', 'userpage']);
+      }
+      else if(user[0].role == "admin"){
+        this._router.navigate(['/', 'admin']);
+      }
+      
     }
     else{
       this._router.navigate(['/', 'signin'])
