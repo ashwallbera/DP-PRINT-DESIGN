@@ -6,28 +6,26 @@ import { MainComponent } from './main/main.component';
 import { MyordersComponent } from './myorders/myorders.component';
 import { ProductserviceComponent } from './productservice/productservice.component';
 
-
 const routes: Routes = [
-  // { path: 'dashboard', component: DashboardComponent },
-  // {path: '',component:HeaderComponent},
-  // {path: 'aboutus',component:AboutusComponent}
   {
-    path: "",
+    path: '',
     component: MainComponent,
     children: [
       {
-        path: "", component: HomeComponent
+        path: '',
+        component: HomeComponent,
       },
       {
-        path: "productservice", component: ProductserviceComponent
+        path: 'productservice',
+        component: ProductserviceComponent,
       },
       {
-        path: "myorders", component: MyordersComponent
-      }
+        path: 'myorders',
+        component: MyordersComponent,
+      },
     ],
   },
-  { path: "**", redirectTo: "", pathMatch: "full" },
-  
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

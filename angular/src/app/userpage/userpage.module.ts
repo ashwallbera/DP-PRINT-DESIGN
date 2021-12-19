@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule, MatNavList } from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
