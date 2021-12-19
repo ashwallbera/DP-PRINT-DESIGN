@@ -38,7 +38,8 @@ export class SigninComponent implements OnInit {
           console.log('verified');
           localStorage.setItem('user', JSON.stringify(data));
           console.log(JSON.parse(""+localStorage.getItem('user')));
-          this._router.navigate(['/userpage']).then(
+          
+          this._router.navigate(['']).then(
             (nav) => {
               console.log('SUCCESS ' + nav); // true if navigation is successful
             },
