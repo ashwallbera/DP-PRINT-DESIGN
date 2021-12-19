@@ -19,7 +19,12 @@ namespace aspnetcoreAPI.Models
         public string imgUri { get; set; } 
 
         [DataMember]
-        public string categoryid { get; set; }
+        public List<CategoryModel> category { get; set; }
+
+
+        [DataMember]
+        public List<SpecificationModel> specification { get; set; }
+
 
         [DataMember]
         public bool isDeleted { get; set; }

@@ -162,7 +162,7 @@ namespace aspnetcoreAPI.Controllers
                 {
                     connection.Open();
                     
-                    string cmd = "INSERT INTO accounts (id,username,password,email,firstname,lastname) values('"+Guid.NewGuid()+"','"+user.username+"','"+user.password+"','"+user.email+"','"+user.firstname+"','"+user.lastname+"')";
+                    string cmd = "INSERT INTO accounts (id,username,password,email,firstname,lastname,role) values('"+Guid.NewGuid()+"','"+user.username+"','"+user.password+"','"+user.email+"','"+user.firstname+"','"+user.lastname+"','"+user.role+"')";
                     var results = await connection.QueryAsync<UserModel>(cmd);
                     connection.Close();
                     return Ok(true);
