@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap");
+
+:root {
+  --primary: #57606f;
+  --secondary: #ffffff;
+  --size: 12px;
+}
+
+.background-color{
+  background-color: var(--primary) !important;
+}
+
+.align-left {
+  float: left;
+}
+.btn-ok {
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-size: var(--size);
+  padding: 7px;
+}
+
+.btn-cancel {
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-size: var(--size);
+  padding: 7px;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.full-width {
+  width: 100%;
+}
+.half-width {
+  width: 50%;
+}
+
+.content-page {
+  background-image: linear-gradient(to bottom right, var(--primary), var(--secondary));
+  height: 100%;
+  padding: 20px;
+}
+table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
+.mat-form-field {
+  padding: 5px;
+}
+
+.mat-card-actions{
+  align-items: center !important;
+  position: absolute;
+  /* margin-left: -8px; */
+  /* margin-right: -8px; */
+  /* padding: 8px 0; */
+  /* margin-bottom: 0px; */
+  /* align-items: baseline; */
+  bottom: 15px !important;
+}

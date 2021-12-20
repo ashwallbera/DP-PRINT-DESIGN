@@ -1,0 +1,76 @@
+<h2 mat-dialog-title>Products</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>ITEM SPECIFICATION</ng-template>
+
+        <!-- Category -->
+        <div class="d-flex justify-content-start">
+          <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let c of product.category" [value]="c.name">
+                {{ c.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <!-- Specification -->
+        <div class="d-flex justify-content-between">
+          <mat-form-field appearance="outline" *ngFor="let i of product.specification">
+            <mat-label>{{i.name}}</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let x of i.identification" [value]="x.name"> {{x.name}} </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <!-- Identification -->
+        <!-- <div class="d-flex justify-content-start">
+          <mat-form-field appearance="outline" *ngFor="let i of category">
+            <mat-label>Specification</mat-label>
+            <mat-select>
+              <mat-option> sample </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> -->
+
+        <div align="end">
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+      <form [formGroup]="secondFormGroup">
+        <div class="d-flex justify-content-center">
+          <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input
+              matInput
+              formControlName="secondCtrl"
+              placeholder="Ex. 1 Main St, New York, NY"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p class="d-flex justify-content-center">You are now done.</p>
+      <div class="d-flex justify-content-between">
+        <button mat-button matStepperPrevious>Back</button>
+
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

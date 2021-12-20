@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>{{product.name}}</h1>
+<div mat-dialog-content>
+  <app-chip-list [product]="product"></app-chip-list>
+  <!-- chiplist for specification -->
+  <mat-form-field
+  class="example-chip-list"
+  appearance="fill"
+  style="width: 1000px"
+>
+  <mat-label>Enter Specification</mat-label>
+  <mat-chip-list #chipList aria-label="Fruit selection">
+    <mat-chip *ngFor="let specs of product.specification" (removed)="remove(specs)">
+        {{specs.name}}
+    
+     
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+    <input
+      placeholder="New Specification..."
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="add($event)"
+    />
+  </mat-chip-list>
+</mat-form-field>
+</div>
+<div>
+  <div class="d-flex justify-content-between">
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button mat-dialog-close align="end">Save</button>
+  </div>
+</div>

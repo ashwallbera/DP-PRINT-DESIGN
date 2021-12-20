@@ -1,0 +1,79 @@
+<div
+  style="position: fixed; background-color: black; height: 100%; width: 100%"
+>
+  <div class="left"><img src="../../assets/image/background.gif" alt="" /></div>
+  <div class="right">
+    <div class="login">
+      <form
+        class="example-form"
+        #loginValue="ngForm"
+        [formGroup]="addProductForm"
+      >
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <span matPrefix
+            ><mat-icon aria-hidden="false" aria-label="Example home icon"
+              >email
+            </mat-icon>
+            &nbsp;
+          </span>
+          <input
+            type="email"
+            matInput
+            formControlName="username"
+            placeholder="Ex. pat@dpprintdesign.com"
+          />
+          <mat-error *ngIf="checkError('username', 'required')"
+            >Valid email is required</mat-error
+          >
+          <!-- <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error> -->
+        </mat-form-field>
+
+        <br />
+        <br />
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>PASSWORD</mat-label>
+          <span matPrefix
+            ><mat-icon aria-hidden="false" aria-label="Example home icon"
+              >lock
+            </mat-icon>
+            &nbsp;
+          </span>
+          <input
+            type="password"
+            matInput
+            formControlName="password"
+            placeholder="PASSWORD"
+            [type]="hide ? 'password' : 'text'"
+          />
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-error *ngIf="error">{{getErrorMessage()}}</mat-error>
+
+        <table class="full-width">
+          <tr>
+            <td>
+              <button
+                (click)="getValues(loginValue.value)"
+                mat-raised-button
+                class="half-width btn-ok"
+                [disabled]="!addProductForm.valid"
+              >
+                SIGN IN
+              </button>
+            </td>
+            <td>
+              <a routerLink="/signup">signup</a>
+            </td>
+          </tr>
+        </table>
+       
+      </form>
+    </div>
+  </div>
+</div>
