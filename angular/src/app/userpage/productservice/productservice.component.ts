@@ -23,7 +23,7 @@ export class ProductserviceComponent implements OnInit {
   openDialog(product: any) {
     console.log(product);
     this.dialog.open(ShopNowDialogComponent, {
-      data:product,
+      data:product
     });
   }
 
