@@ -24,6 +24,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChipListComponent } from './chip-list/chip-list.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -54,6 +56,9 @@ import { ChipListComponent } from './chip-list/chip-list.component';
     MatChipsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatOptionModule,
+    FormsModule,
+    MatSelectModule
   ]
 })
 export class AdminModule { }

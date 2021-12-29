@@ -1,31 +1,52 @@
-<h1 mat-dialog-title>{{product.name}}</h1>
+<h1 mat-dialog-title>{{ product.name }}</h1>
 <div mat-dialog-content>
+  <!-- Chiplist for product -->
   <app-chip-list [product]="product"></app-chip-list>
   <!-- chiplist for specification -->
   <mat-form-field
-  class="example-chip-list"
-  appearance="fill"
-  style="width: 1000px"
->
-  <mat-label>Enter Specification</mat-label>
-  <mat-chip-list #chipList aria-label="Fruit selection">
-    <mat-chip *ngFor="let specs of product.specification" (removed)="remove(specs)">
-        {{specs.name}}
-    
-     
-      <button matChipRemove>
-        <mat-icon>cancel</mat-icon>
-      </button>
-    </mat-chip>
-    <input
-      placeholder="New Specification..."
-      [matChipInputFor]="chipList"
-      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-      [matChipInputAddOnBlur]="addOnBlur"
-      (matChipInputTokenEnd)="add($event)"
-    />
-  </mat-chip-list>
-</mat-form-field>
+    class="example-chip-list"
+    appearance="fill"
+    style="width: 1000px"
+  >
+    <mat-label>Enter Specification</mat-label>
+    <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip
+        *ngFor="let specs of product.specification"
+        (removed)="remove(specs)"
+      >
+        {{ specs.name }}
+
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="New Specification..."
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+      />
+    </mat-chip-list>
+  </mat-form-field>
+
+  <form [formGroup]="identityForm">
+    <table formArrayName="identityArray">
+      <tr
+        *ngFor="let v of identityFormMethod().controls; let i = index"
+        [formGroupName]="i"
+      >
+        <!-- Table Data is Form field-->
+
+        <mat-form-field appearance="outline">
+          <mat-label>PRODUCT IDENTIFICATION (SPECIFICATION)</mat-label>
+          <mat-select formControlName="identificationfc">
+            <mat-option></mat-option>
+          </mat-select>
+        </mat-form-field>
+      </tr>
+    </table>
+  </form>
 </div>
 <div>
   <div class="d-flex justify-content-between">
