@@ -56,7 +56,7 @@ namespace aspnetcoreAPI.Controllers
                             var cmdidentification = string.Format(@"
                                                     Select
                                                     *
-                                                    FROM identification where specificationid = '"+s.Id+"'");
+                                                    FROM identification where specificationid = '"+s.Id+"' and productid='"+p.Id+"'");
                             var iresults = await connection.QueryAsync<IdentificationModel>(cmdidentification);
                             if (iresults != null)
                             {
@@ -79,12 +79,51 @@ namespace aspnetcoreAPI.Controllers
 
             try
             {
+                product.Id = Guid.NewGuid();
                 using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-
-                    string cmd = "INSERT INTO products (id,name,description,imgUri,isDeleted) values('" + Guid.NewGuid() + "','" + product.name + "','" + product.description+ "','" + product.imgUri+ "','" + product.isDeleted + "')";
+                    string cmd = "INSERT INTO products (id,name,description,imgUri,isDeleted) values('" + product.Id + "','" + product.name + "','" + product.description+ "','" + product.imgUri+ "','" + false + "')";
                     var results = await connection.QueryAsync<ProductModel>(cmd);
+                    connection.Close();
+                    if(product.category.Count > 0)
+                    {
+                        foreach (var category in product.category)
+                        {
+                            connection.Open();
+                            string cmdCatergory = "INSERT INTO category(id,productid,name) values('" + Guid.NewGuid() + "','" + product.Id + "','" + category.name + "')";
+                            var categoryResults = await connection.QueryAsync<CategoryModel>(cmdCatergory);
+                            connection.Close();
+                        }
+
+                    }
+                    if(product.specification.Count > 0)
+                    {
+                        var specid = Guid.NewGuid();
+                        foreach (var specification in product.specification)
+                        {
+                            connection.Open();
+                            string cmdSpecification="INSERT INTO specification(id,productid,name) values('"+ specid + "','"+product.Id+"','"+specification.name+"')";
+                            var specificationResult = await connection.QueryAsync<SpecificationModel>(cmdSpecification);
+                            connection.Close();
+                            if(specification.identification.Count > 0)
+                            {
+                                foreach (var identity in specification.identification)
+                                {
+                                    connection.Open();
+                                    string cmdidentification = "INSERT INTO identification(id,productid,specificationid,name) values('" + Guid.NewGuid() + "','"+product.Id+"','"+ specid + "','"+identity.name+"')";
+                                    var identificationResult = await connection.QueryAsync<IdentificationModel>(cmdidentification);
+
+                                    connection.Close();
+                                }
+                            }
+                        }
+                    }
+                    
+                   
+                   
+                  
+                
                     connection.Close();
                     return Ok(true);
                 }
