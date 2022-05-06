@@ -6,7 +6,7 @@ namespace aspnetcoreAPI.Models
     public class ProductModel
     {
 
-        [DataMember]
+        [DataMember(IsRequired = false)]
         public Guid Id { get; set; }
 
         [DataMember]

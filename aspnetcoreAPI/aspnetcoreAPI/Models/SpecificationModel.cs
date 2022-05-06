@@ -5,7 +5,7 @@ namespace aspnetcoreAPI.Models
     [DataContract]
     public class SpecificationModel
     {
-        [DataMember]
+        [DataMember(IsRequired = false)]
         public Guid Id { get; set; }
 
         [DataMember]

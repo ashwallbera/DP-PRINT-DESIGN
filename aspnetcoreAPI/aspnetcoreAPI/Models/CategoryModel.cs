@@ -5,10 +5,10 @@ namespace aspnetcoreAPI.Models
     [DataContract]
     public class CategoryModel
     {
-        [DataMember]
+        [DataMember(IsRequired = false)]
         public Guid Id { get; set; }
 
-        [DataMember]
+        [DataMember(IsRequired = false)]
         public Guid productid { get; set; }
 
         [DataMember]
