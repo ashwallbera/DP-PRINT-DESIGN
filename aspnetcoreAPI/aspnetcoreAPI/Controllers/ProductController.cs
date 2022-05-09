@@ -152,13 +152,22 @@ namespace aspnetcoreAPI.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<IEnumerable<UserModel>>> DeleteProduct()
+        public async Task<ActionResult<IEnumerable<UserModel>>> DeleteProduct(string id)
         {
 
             try
             {
-
-                return Ok();
+     
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string cmd = "UPDATE products set isDeleted='True' where id='"+id+"'";
+                    var results = await connection.QueryAsync<ProductModel>(cmd);
+                    connection.Close();
+  
+                    connection.Close();
+                    return Ok();
+                }
             }
             catch (Exception ex)
             {
