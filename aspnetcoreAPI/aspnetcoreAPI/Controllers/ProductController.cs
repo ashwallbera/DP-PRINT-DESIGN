@@ -83,7 +83,7 @@ namespace aspnetcoreAPI.Controllers
                 using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string cmd = "INSERT INTO products (id,name,description,imgUri,isDeleted) values('" + product.Id + "','" + product.name + "','" + product.description+ "','" + product.imgUri+ "','" + false + "')";
+                    string cmd = "INSERT INTO products (id,name,description,imgUri,isDeleted,price) values('" + product.Id + "','" + product.name + "','" + product.description+ "','" + product.imgUri+ "','" + false + "','"+product.price+"')";
                     var results = await connection.QueryAsync<ProductModel>(cmd);
                     connection.Close();
                     if(product.category.Count > 0)

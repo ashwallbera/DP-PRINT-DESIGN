@@ -21,6 +21,8 @@ namespace aspnetcoreAPI.Models
         [DataMember]
         public List<CategoryModel> category { get; set; }
 
+        [DataMember(IsRequired = false)]
+        public string price { get; set; }
 
         [DataMember]
         public List<SpecificationModel> specification { get; set; }
