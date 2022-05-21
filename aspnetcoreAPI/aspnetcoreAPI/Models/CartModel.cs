@@ -24,6 +24,9 @@ namespace aspnetcoreAPI.Models
         public string created { get; set; }
 
         [DataMember(IsRequired = false)]
+        public int qty { get; set; }
+
+        [DataMember(IsRequired = false)]
         public List<ProductModel> product { get; set; }
 
         [DataMember(IsRequired =false)]

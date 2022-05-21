@@ -41,7 +41,7 @@ namespace aspnetcoreAPI.Controllers
 
         }
         [HttpPost]
-        public async Task<ActionResult> addCart(CartModel model)
+        public async Task<ActionResult> addCart(CartModelPost model)
         {
             try
             {
@@ -51,10 +51,32 @@ namespace aspnetcoreAPI.Controllers
                 {
                     connection.Open();
                     string cmd = "INSERT INTO cart(id,productid,specification,price,created,isDeleted,customerid) values('"+model.Id+"','"+model.productId + "','"+model.specification+"','"+model.price+"','"+model.created+"','"+model.isDeleted+"','"+model.customerid+"') ";
-                    var results = await connection.QueryAsync<CartModel>(cmd);
+                    var results = await connection.QueryAsync<CartModelPost>(cmd);
                     connection.Close();
                 }
                     return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateCart(CartModelPost model)
+        {
+            try
+            {
+                model.isDeleted = false;
+                model.Id = Guid.NewGuid();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                  /*  connection.Open();
+                    string cmd = "INSERT INTO cart(id,productid,specification,price,created,isDeleted,customerid) values('" + model.Id + "','" + model.productId + "','" + model.specification + "','" + model.price + "','" + model.created + "','" + model.isDeleted + "','" + model.customerid + "') ";
+                    var results = await connection.QueryAsync<CartModelPost>(cmd);
+                    connection.Close();*/
+                }
+                return Ok();
             }
             catch (Exception ex)
             {
