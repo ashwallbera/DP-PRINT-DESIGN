@@ -27,7 +27,7 @@ namespace aspnetcoreAPI.Models
         public int qty { get; set; }
 
         [DataMember(IsRequired = false)]
-        public List<ProductModel> product { get; set; }
+        public ProductModel product { get; set; }
 
         [DataMember(IsRequired =false)]
         public bool isDeleted { get; set; }
