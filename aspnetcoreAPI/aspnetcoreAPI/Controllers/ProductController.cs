@@ -139,11 +139,62 @@ namespace aspnetcoreAPI.Controllers
         [HttpPut]
         public async Task<ActionResult<IEnumerable<ProductModel>>> UpdateProduct(ProductModel model)
         {
-
             try
             {
 
-                return Ok();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string cmd = "UPDATE products set name='"+model.name+"' , price='"+model.price+"', description='"+model.description+"',imgUri='"+model.imgUri+"' where id='" + model.Id + "'";
+                    var results = await connection.QueryAsync<ProductModel>(cmd);
+                    connection.Close();
+                    //Update category
+                    if (model.category.Count() > 0)
+                    {
+                        foreach (var x in model.category)
+                        {
+                            using (var connection1 = new SqlConnection(connectionString))
+                            {
+                                connection1.Open();
+                                string cmdcategory = "Update category set name='"+x.name+"' where id='"+x.Id+"'";
+                                var resultsCategory = await connection1.QueryAsync<CategoryModel>(cmdcategory);
+                                connection1.Close();
+                            }
+                        }
+                      
+                    }
+
+                    //Update spec
+                    if (model.specification.Count > 0)
+                    {
+                        foreach (var s in model.specification) {
+
+                            using (var connection1 = new SqlConnection(connectionString))
+                            {
+                                connection1.Open();
+                                string cmdspecs = "Update specification set name='" + s.name + "' where id='" + s.Id + "'";
+                                var resultsCategory = await connection1.QueryAsync<SpecificationModel>(cmdspecs);
+                                connection1.Close();
+
+                                //Update Identification
+                                if (s.identification.Count > 0)
+                                {
+                                    using (var connection2 = new SqlConnection(connectionString))
+                                    {
+                                        connection2.Open();
+                                        string cmdidentification = "Update identification set name='"+s.name+"' where id='"+s.Id+"'";
+                                        var resultIdentification = await connection2.QueryAsync<IdentificationModel>(cmdidentification);
+                                        connection2.Close();
+                                    }
+                                }
+                            }
+                           
+                        }
+                    }
+
+         
+                    return Ok();
+                }
             }
             catch (Exception ex)
             {
