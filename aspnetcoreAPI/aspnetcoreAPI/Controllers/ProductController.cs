@@ -99,9 +99,10 @@ namespace aspnetcoreAPI.Controllers
                     }
                     if(product.specification.Count > 0)
                     {
-                        var specid = Guid.NewGuid();
+                        
                         foreach (var specification in product.specification)
                         {
+                            var specid = Guid.NewGuid();
                             connection.Open();
                             string cmdSpecification="INSERT INTO specification(id,productid,name) values('"+ specid + "','"+product.Id+"','"+specification.name+"')";
                             var specificationResult = await connection.QueryAsync<SpecificationModel>(cmdSpecification);
