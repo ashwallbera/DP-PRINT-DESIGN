@@ -13,7 +13,7 @@ namespace aspnetcoreAPI.Controllers
     {
         private string connectionString = "Server=.;Initial Catalog=DpPrintDesign;Integrated Security=true";
         // GET: api/<ShippingController>
-        [HttpGet]
+        [HttpGet("customerid")]
         public async Task<ActionResult<IEnumerable<ShippingModel>>> Get(Guid customerid)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -104,10 +104,10 @@ namespace aspnetcoreAPI.Controllers
         }
 
         // GET api/<ShippingController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ShippingModel>>> GetAllShipping()
         {
-            return "value";
+            return Ok();
         }
 
         // POST api/<ShippingController>
