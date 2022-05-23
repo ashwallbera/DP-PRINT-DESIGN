@@ -137,7 +137,7 @@ namespace aspnetcoreAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<IEnumerable<ProductModel>>> UpdateProduct()
+        public async Task<ActionResult<IEnumerable<ProductModel>>> UpdateProduct(ProductModel model)
         {
 
             try
